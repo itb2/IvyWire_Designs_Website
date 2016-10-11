@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Soundcloud Jukebox</title>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+		#wrapper{
+			width:40%;
+			height:100%;
+			margin: 0 auto;
+			border: 2px dashed #BFA4BB;
+			padding: 30px 0px 40px 50px;
+			background-color: #40373E;
+
+		}
+
+
+		h1,
+		label,
+		h2,
+		div,
+		a{
+			color: #EEE;
+		}
+		body{
+			background-color: #40373E;
+		}
+		input{
+			width:200px;
+			height:25px;
+			font-size: 20px;
+			margin: 0 auto;
+		}
+		#sub{
+			width:75px;
+			height:30px;
+			font-size: 18px;
+		}
+		label{
+			font-size: 25px;
+		}
+		#playing{
+			font-weight: bold;
+			color: #EEE;
+			font-size:30px; 
+			font-family: "papyrus";
+		}
+		h2{
+			font-size: 20px;
+		}
+		h1{
+			font-size: 40px;
+			width: 250px;
+			margin: 0 auto;
+			color: #7F6D7C;
+		}
+		#des{
+			border: 1px solid #FFDAF9;
+			width: 100px;
+			margin-top: 20px;
+		}
+		.t{
+			color:#E5C4E0;
+		}
+		a{
+			display: block;
+		}
+		button{
+			margin: 20px 20px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div id = "wrapper">
+		<h1>Ivory Player</h1>
+
+			<label>Song Id:</label>
+			<input type="name" name="songId" value="/tracks/193270658">
+			<button  id = "sub" onclick= "playSong()">Submit</button>
+		<div id = "wrap2">
+			<h2><strong>Now Playing:</strong></h2>
+			<img  id = "img" src="">
+			<div id="playing"><strong>No song is currently playing...</strong></div>
+			<button id ="play"><i class="material-icons">play_arrow</i></button>
+			<button id="pause"><i class="material-icons">pause</i></button>
+			<a href="" id = "slink">~Link to this song~</a>
+			<div class = "t"><strong>Genre: </strong></div>
+			<div id = "genre"></div>
+			<div class = "t"><strong>Release Date:</strong> </div>
+			<div id = "date"></div>
+			<div class = "t"><strong>Posted by: </strong></div>
+			<div id = "user"></div>
+			<a href="" id = "alink">~Link to Soundcloud user's profile~</a>
+			<div class = "t" id = "des"><strong>Description</strong></div>
+			<div id = "descrip"></div>
+		</div>
+	</div>
+
+
+
+	<script>
+		$("#wrap2").hide();
+
+		///tracks/193270658 , /tracks/186527185
+		SC.initialize({
+			client_id: '9ffcc0584b1c734ceabd781b4761f0dc'
+		});
+		
+		var biebsId = "/tracks/193270658";
+		
+
+		function playSong(){
+			//debugger;
+			var currentSong = document.getElementsByName("songId")[0].value;
+			console.log(currentSong);
+			var url = 'https://api.soundcloud.com' + currentSong + '?client_id=9ffcc0584b1c734ceabd781b4761f0dc';
+
+			$.getJSON(url, function(track){
+				$("#descrip").hide(2000);
+				console.log(track);
+				var songName = track.title;
+				document.getElementById("playing").innerText = songName;
+				var slink = track.permalink_url;
+				document.getElementById("slink").href = slink;
+				var artist = track.user.username;
+				document.getElementById("user").innerText = artist;
+				var alink = track.user.permalink_url;
+				document.getElementById("alink").href = alink;
+				var description = track.description;
+				var descripCount = 1;
+				document.getElementById("des").onclick = function(){
+					document.getElementById("descrip").innerText = description;
+
+					if (descripCount %2 != 0){
+						descripCount ++;
+						$("#descrip").slideDown(2000);
+					}else{
+						descripCount ++;
+						$("#descrip").slideUp(2000);
+					}
+
+				};
+				var release = track.release_day + "/" + track.release_month + "/" + track.release_year;
+				document.getElementById("date").innerText = release;
+				var genre = track.genre;
+				document.getElementById("genre").innerText = genre;
+				var coverArt = track.artwork_url;
+				console.log(coverArt);
+				$('body').css('backgroundImage', 'url(' + coverArt +')');
+				$("#wrap2").slideDown();
+			});
+			
+			document.getElementById("play").onclick = startStreaming;
+			document.getElementById("pause").onclick = pauseSong;
+			var count = 0;
+			var currentPlayer;
+			function startStreaming() {
+				if(count == 0){
+					count ++;
+					var playerPromise = SC.stream(currentSong);
+					playerPromise.then(playSong);
+
+				}else{
+					playSong(currentPlayer);
+				}
+			}
+			
+			function playSong(player){
+				currentPlayer = player;
+		    	player.play();	
+			}
+			function pauseSong(){
+				currentPlayer.pause();
+				
+			}
+
+		}
+	</script>
+</body>
+</html>

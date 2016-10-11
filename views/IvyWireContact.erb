@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IvyWire Contact</title>
+	<link rel="stylesheet" type="text/css" href="IvyWire.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body onload="myFunction()">
+	<div id = "logo">
+		<img src="Logomakr_0phR5q.png">
+	</div>
+	<div id="wrapper">
+	<div class ="menu">
+		
+		<div class = "home">
+			<a href="/" id= "house"><div class="icons" style="background-image: url('Logomakr_3VIuCh.png'); background-size: contain; background-repeat: no-repeat; width: 30px; height: 30px;"></div></a>
+			<div  id="hom">Home</div>
+		</div>
+		<div class = "projects">
+			<a href="/projects" id= "paper"><div class="icons" style="background-image: url('Logomakr_8WpiNB.png'); background-size: contain; background-repeat: no-repeat; width: 30px; height: 30px;"></div></a>
+			<div id ="pj">Projects</div>
+		</div>
+		<div class = "me">
+			<a href="/ivory" id= "girl"><div class="icons" style="background-image: url('Logomakr_8z0qhC.png'); background-size: contain; background-repeat: no-repeat;width: 35px; height: 30px;"></div></a>
+			<div id="IB">Ivory Brown</div>
+		</div>
+		<div class = "contact">
+			<a href="/contact" id= "mail"><div class="icons" style="background-image: url('Logomakr_219pbf.png'); padding: 7px;background-size: contain; background-repeat: no-repeat; width: 30px; height: 30px;"></div></a>
+			<div id ="con">Contact Me</div>
+		</div>
+
+	</div>
+	</div>
+
+	<h2 style="color:#97bb7b; text-align: center; font-size: 2em; margin: 0px; position: relative; bottom: 180px">Contact</h2>
+	<div class = "box" style="overflow-y: hidden;position: relative; bottom: 180px;">
+		<h2 id="contactMe" style="color:teal;">Want to do business?</h2>
+
+		<form action="/email" method="post">
+			<h3 style="color:#97bb7b">Email Me at<span style="color: white;"> itb2@duke.edu</span> ! Please include your phone number, reason for contacting and any relevant details about your web development needs and desires. </h3>
+			<label style="color:#97bb7b;">Your Email:</label>
+			<input type="Email" name="address" id="email">
+			<label style="color:#97bb7b;">Subject:</label>
+			<input type="subject" name="subject" id="subject">
+			<textarea style="display:block; width: 400px; height: 150px; margin: 0 auto; position: relative; top: 20px; vertical-align: top;" name="message" id="message"></textarea>
+			<input type="submit" value="Send" style="color:#97bb7b; background-color: grey; margin-top: 40px; width: 100px; height: 30px; font-size: 1em;">
+		</form>
+
+	</div>
+
+	<script type="text/javascript" src="IvyWire.js"></script>
+</body>
+</html>
