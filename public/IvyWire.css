@@ -12,41 +12,12 @@ body{
 	background-size: 100% 100%;
 	background-blend-mode: luminosity;
 }
-@media screen and (max-width: 1175px){
-	.icons{
-		display: block;
-	}
-	#wrapper{
-		height: 300px;
-	}
+body > h2{
+	position: relative; 
+	bottom: 200px;
+	font-size: 2em;
 }
-@media screen and (max-width: 830px){
-	#hom,
-	#pj,
-	#IB,
-	#con{
-		display: none;
-	}
-}
-@media screen and (max-width: 500px) {
-    .logo{
-    	text-align: center;
-    	width:100px;
-    	height:auto;
-    }
-    .logo > img{
-    	width:340px;
-    	position: relative;
-    	left:40%;
-    }
-    .box{
-		left:30px;
-	}
-	#girl2{
-	position: relative;
-	right: 20px;
-	}
-}
+
 .logo{
 	text-align: center;
 	position: relative;
@@ -59,14 +30,13 @@ body{
 .box{
 
 	padding: 20px;
-	text-align: center;
-	position: relative;
-	bottom: 125px;
-	width:60%;
+	position: relative; 
+	bottom: 200px;
+	width:72%;
 	margin: 0 auto;
 	overflow: auto; 
 	background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.6);
    
 }
 #hi{
@@ -162,7 +132,6 @@ div.box p{
 #con{
 	z-index: 1;
 	position: relative;
-	bottom: 25px;
 	left: 17px;
 	color: transparent;
 	display: inline-block;
@@ -181,5 +150,140 @@ li{
 }
 body>h2{
 	position: relative;
-	right:800px;
+	right: 800px;
+	color:#97bb7b; 
+	text-align: center;
+}
+#NO_site{
+	width: 265px; 
+	height: 150px; 
+	margin: 0 auto; 
+	background-image: url('sororityWebsite.png'); 
+	background-size: contain;
+}
+#juke_site{
+	width: 265px; 
+	height: 150px; 
+	margin: 0 auto;
+	background-image: url('jukeB_SC.png'); 
+	background-size: contain;
+}
+#profilePic{
+	margin-right: 20px;
+	border: 4px outset teal; 
+	display: inline-block; 
+	width: 200px; 
+	height: 180px; 
+	background-image: url('IMG_1496.JPG'); 
+	background-size: contain;
+}
+#message{
+	font-size: .9em;
+	color: #97bb7b;
+	background-color: transparent;
+	border: 1px solid #97bb7b;
+	display:block; 
+	width: 60%; 
+	height: 200px; 
+	margin: 0 auto; 
+	vertical-align: top;
+}
+#subject{
+	font-size: 1em;
+	height: 20px;
+	color: #97bb7b;
+	background-color: transparent;
+	border: 1px solid #97bb7b;
+	display: block; 
+	width: 60%; 
+	margin: 0 auto;
+}
+#email{
+	font-size: 1em;
+	height: 20px;
+	color: #97bb7b;
+	background-color: transparent;
+	border: 1px solid #97bb7b;
+	display: block; 
+	width: 60%; 
+	margin: 0 auto;
+}
+@media screen and (max-width: 830px){
+	#hom,
+	#pj,
+	#IB,
+	#con{
+		display: none;
+	}
+	.icons{
+		color: black;
+	}
+}
+@media screen and (max-width: 700px){
+	body > h2{
+		font-size: 1.5em;
+	}
+	div.box p{
+		font-size: 1em;
+	}
+
+}
+@media screen and (max-width: 500px) {
+    .box{
+    	width: 340px;
+    }
+    #message{
+    	margin-right: 0px;
+    	margin-left: 0px;
+    	width: 300px;
+    	height: 150px;
+    }
+    #subject,
+    #email{\
+    	margin-right: 0px;
+    	margin-left: 0px;
+    	width: 300px;
+    }
+    .logo{
+    	width: 300px;
+    	margin: 0 auto;
+    }
+    .logo > img{
+    	width:300px;
+    }
+    #logo{
+    	width: 300px;
+    	margin: 0 auto;
+    }
+    #logo img{
+    	width:300px;
+    }
+    body > h2{
+    	bottom: 250px;
+    }
+    .box{
+    	padding: 0px;
+    	position: relative;
+		left:40px;
+		bottom: 250px;
+	}
+	.menu{
+		position: relative;
+		top: -50px;
+	}
+	#girl2{
+	position: relative;
+	right: 20px;
+	}
+	#juke_site,
+	#NO_site{
+		width: 200px;
+		height: 112px;
+	}
+	#profilePic{
+	width: 90px; 
+	height: 80px; 
+	background-image: url('IMG_1496.JPG'); 
+	background-size: contain;
+}
 }

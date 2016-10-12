@@ -32,18 +32,18 @@
 	</div>
 	</div>
 
-	<h2 style="color:#97bb7b; text-align: center; font-size: 2em; margin: 0px; position: relative; bottom: 180px">Contact</h2>
-	<div class = "box" style="overflow-y: hidden;position: relative; bottom: 180px;">
-		<h2 id="contactMe" style="color:teal;">Want to do business?</h2>
+	<h2>Contact</h2>
+	<div class = "box">
+		<h2 id="contactMe" style="color:teal; text-align: center;">Want to do business?</h2>
 
 		<form action="/email" method="post">
 			<h3 style="color:#97bb7b">Email Me at<span style="color: white;"> itb2@duke.edu</span> ! Please include your phone number, reason for contacting and any relevant details about your web development needs and desires. </h3>
-			<label style="color:#97bb7b;">Your Email:</label>
-			<input type="Email" name="address" id="email">
-			<label style="color:#97bb7b;">Subject:</label>
-			<input type="subject" name="subject" id="subject">
-			<textarea style="display:block; width: 400px; height: 150px; margin: 0 auto; position: relative; top: 20px; vertical-align: top;" name="message" id="message"></textarea>
-			<input type="submit" value="Send" style="color:#97bb7b; background-color: grey; margin-top: 40px; width: 100px; height: 30px; font-size: 1em;">
+			<input id="email" type="Email" name="address" placeholder="Your Email (ex. John@yahoo.com)">
+			<input type="subject" name="subject" id="subject" placeholder="Subject (ex. 'Seeking Web Design Services')">
+			<textarea name="message" id="message" placeholder="Your message..."></textarea>
+			<div style="width: 110px; margin: 0 auto;">
+				<input type="submit" value="Send" style="margin-top: 20px; color: grey; background-color: black; border: 2px outset #97bb7b; width: 100px; height: 30px; font-size: 1em;">
+			</div>
 		</form>
 
 	</div>
